@@ -103,5 +103,16 @@ namespace Курсовая.Parent
             subjects.Show();
             this.Hide();
         }
+
+        private void MainParent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Ви дійсно хочете вийти з програми?", "Вихід",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Login login = new Login();
+                login.Show();
+                this.Hide();
+            }
+        }
     }
 }

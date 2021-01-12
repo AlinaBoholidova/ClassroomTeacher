@@ -42,19 +42,35 @@ namespace Курсовая
 
         private void OK_AddActivity_Click(object sender, EventArgs e)
         {
-            string name = activity_nameTextBox.Text;
-            string date = Convert.ToString(activity_dateDateTimePicker.Value.Date);
-
-            if (edit)
+            if (ValidateAll(activity_nameTextBox))
             {
-                additionalActivityTableAdapter.UpdateQuery(name, date, id);
+                string name = activity_nameTextBox.Text;
+                string date = Convert.ToString(activity_dateDateTimePicker.Value.Date);
+
+                if (edit)
+                {
+                    additionalActivityTableAdapter.UpdateQuery(name, date, id);
+                }
+                else
+                {
+                    additionalActivityTableAdapter.InsertQuery(name, date);
+                }
+
+                Close();
             }
             else
             {
-                additionalActivityTableAdapter.InsertQuery(name, date);
+                MessageBox.Show("Перевірте заповненість полів.", "Повідомлення");
             }
+        }
 
-            Close();
+        private bool ValidateAll(Control c1)
+        {
+            if (string.IsNullOrWhiteSpace(c1.Text))
+            {
+                return false;
+            }
+            else return true;
         }
     }
 }

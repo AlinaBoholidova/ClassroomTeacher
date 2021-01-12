@@ -255,5 +255,25 @@ namespace Курсовая
                 this.Hide();
             }
         }
+
+        private void fromNumericUpDown_Points_ValueChanged(object sender, EventArgs e)
+        {
+            if (toNumericUpDown_Points.Value < fromNumericUpDown_Points.Value)
+            {
+                MessageBox.Show("Некоректні оцінки.");
+                fromNumericUpDown_Points.Value = 1;
+                toNumericUpDown_Points.Value = 2;
+            }
+        }
+
+        private void toNumericUpDown_Points_ValueChanged(object sender, EventArgs e)
+        {
+            if (toNumericUpDown_Points.Value < fromNumericUpDown_Points.Value)
+            {
+                MessageBox.Show("Некоректні оцінки.");
+                fromNumericUpDown_Points.Value = 1;
+                toNumericUpDown_Points.Value = 2;
+            }
+        }
     }
 }

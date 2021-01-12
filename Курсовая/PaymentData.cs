@@ -85,24 +85,40 @@ namespace Курсовая
 
         private void OK_Payment_Click(object sender, EventArgs e)
         {
-            int pupil_ID = Convert.ToInt32(pupil_IDComboBox.Text);
-            int paymentRate_ID = Convert.ToInt32(paymentRate_IDComboBox.Text);
-            string month = monthComboBox.Text;
-            bool paid = false;
-            if (paidCheckBox.Checked == true)
+            if (ValidateAll(monthComboBox))
             {
-                paid = true;
-            }
+                int pupil_ID = Convert.ToInt32(pupil_IDComboBox.Text);
+                int paymentRate_ID = Convert.ToInt32(paymentRate_IDComboBox.Text);
+                string month = monthComboBox.Text;
+                bool paid = false;
+                if (paidCheckBox.Checked == true)
+                {
+                    paid = true;
+                }
 
-            if (edit)
-            {
-                paymentTableAdapter.UpdateQuery(pupil_ID, paymentRate_ID, month, paid, id);
+                if (edit)
+                {
+                    paymentTableAdapter.UpdateQuery(pupil_ID, paymentRate_ID, month, paid, id);
+                }
+                else
+                {
+                    paymentTableAdapter.InsertQuery(pupil_ID, paymentRate_ID, month, paid);
+                }
+                Close();
             }
             else
             {
-                paymentTableAdapter.InsertQuery(pupil_ID, paymentRate_ID, month, paid);
+                MessageBox.Show("Перевірте заповненість полів.", "Повідомлення");
             }
-            Close();
+
+        }
+        private bool ValidateAll(Control c1)
+        {
+            if (string.IsNullOrWhiteSpace(c1.Text))
+            {
+                return false;
+            }
+            else return true;
         }
 
         private void pupil_IDComboBox_SelectedIndexChanged(object sender, EventArgs e)

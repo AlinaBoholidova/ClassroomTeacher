@@ -42,28 +42,45 @@ namespace Курсовая
 
         private void OK_PupilData_Click(object sender, EventArgs e)
         {
-            string gender = "";
+            if (ValidateAll(SNP_PupilData))
+            {
+                string gender = "";
 
-            if (gender_PupilData.SelectedIndex == 0)
-            {
-                gender = "Ч";
-            }
-            else if (gender_PupilData.SelectedIndex == 1)
-            {
-                gender = "Ж";
-            }
-            if (edit)
-            {
-                pupilTableAdapter.UpdateQuery(SNP_PupilData.Text, gender,
-                    Convert.ToString(birthDate_PupilData.Value.Date), id);
+                if (gender_PupilData.SelectedIndex == 0)
+                {
+                    gender = "Ч";
+                }
+                else if (gender_PupilData.SelectedIndex == 1)
+                {
+                    gender = "Ж";
+                }
+                if (edit)
+                {
+                    pupilTableAdapter.UpdateQuery(SNP_PupilData.Text, gender,
+                        Convert.ToString(birthDate_PupilData.Value.Date), id);
+                }
+                else
+                {
+                    pupilTableAdapter.InsertQuery(SNP_PupilData.Text, gender,
+                        Convert.ToString(birthDate_PupilData.Value.Date));
+                }
+
+                Close();
             }
             else
             {
-                pupilTableAdapter.InsertQuery(SNP_PupilData.Text, gender,
-                    Convert.ToString(birthDate_PupilData.Value.Date));
+                MessageBox.Show("Перевірте заповненість полів.", "Повідомлення");
             }
 
-            Close(); 
+        }
+
+        private bool ValidateAll(Control c1)
+        {
+            if (string.IsNullOrWhiteSpace(c1.Text))
+            {
+                return false;
+            }
+            else return true;
         }
 
         private void PupilData_Load(object sender, EventArgs e)

@@ -458,6 +458,7 @@
             this.toDateTimePicker.Name = "toDateTimePicker";
             this.toDateTimePicker.Size = new System.Drawing.Size(271, 21);
             this.toDateTimePicker.TabIndex = 103;
+            this.toDateTimePicker.ValueChanged += new System.EventHandler(this.toDateTimePicker_ValueChanged);
             // 
             // fromDateTimePicker
             // 
@@ -468,7 +469,8 @@
             this.fromDateTimePicker.Name = "fromDateTimePicker";
             this.fromDateTimePicker.Size = new System.Drawing.Size(271, 21);
             this.fromDateTimePicker.TabIndex = 102;
-            this.fromDateTimePicker.Value = new System.DateTime(2021, 1, 12, 0, 0, 0, 0);
+            this.fromDateTimePicker.Value = new System.DateTime(2021, 1, 11, 0, 0, 0, 0);
+            this.fromDateTimePicker.ValueChanged += new System.EventHandler(this.fromDateTimePicker_ValueChanged);
             // 
             // label10
             // 

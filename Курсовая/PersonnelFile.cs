@@ -64,31 +64,40 @@ namespace Курсовая
             // Зміна даних
             if (edit)
             {
-                personnelFileTableAdapter.UpdateQuery(SNP_fatherTextBox.Text, SNP_motherTextBox.Text,
+                if (ValidateAll(SNP_fatherTextBox)&&ValidateAll(SNP_motherTextBox)&&ValidateAll(addressTextBox)&&
+                    ValidateAll(phoneTextBox))
+                {
+                    personnelFileTableAdapter.UpdateQuery(SNP_fatherTextBox.Text, SNP_motherTextBox.Text,
                     snp_custodian, addressTextBox.Text, phoneTextBox.Text, Convert.ToInt32(pupil_IDTextBox.Text));
 
-                Table<User> users = db.GetTable<User>();
-                List<int> edit = new List<int>();
-                foreach (var user in users)
-                {
-                    if (user.Password == pupil_IDTextBox.Text)
+                    Table<User> users = db.GetTable<User>();
+                    List<int> edit = new List<int>();
+                    foreach (var user in users)
                     {
-                        edit.Add(user.User_ID);
+                        if (user.Password == pupil_IDTextBox.Text)
+                        {
+                            edit.Add(user.User_ID);
+                        }
                     }
+
+                    User userF = db.GetTable<User>().Where(t => t.User_ID == edit[0]).Single();
+                    User userM = db.GetTable<User>().Where(t => t.User_ID == edit[1]).Single();
+                    userF.Login = SNP_fatherTextBox.Text;
+                    userM.Login = SNP_motherTextBox.Text;
+
+                    if (edit.Count == 3)
+                    {
+                        User userC = db.GetTable<User>().Where(t => t.User_ID == edit[2]).Single();
+                        userC.Login = SNP_custodianTextBox.Text;
+                    }
+
+                    db.SubmitChanges();
+                    Close();
                 }
-
-                User userF = db.GetTable<User>().Where(t => t.User_ID == edit[0]).Single();
-                User userM = db.GetTable<User>().Where(t => t.User_ID == edit[1]).Single();
-                userF.Login = SNP_fatherTextBox.Text;
-                userM.Login = SNP_motherTextBox.Text;
-
-                if (edit.Count == 3)
+                else
                 {
-                    User userC = db.GetTable<User>().Where(t => t.User_ID == edit[2]).Single();
-                    userC.Login = SNP_custodianTextBox.Text;
+                    MessageBox.Show("Перевірте заповненість полів.", "Повідомлення");
                 }
-
-                db.SubmitChanges();
             }
             // Додавання даних
             else
@@ -115,6 +124,7 @@ namespace Курсовая
                     db.GetTable<User>().InsertOnSubmit(userF);
                     db.GetTable<User>().InsertOnSubmit(userM);
                     db.SubmitChanges();
+                    Close();
                 }
                 catch
                 {
@@ -122,7 +132,16 @@ namespace Курсовая
                 }
             }
 
-            Close();
+
+        }
+
+        private bool ValidateAll(Control c1)
+        {
+            if (string.IsNullOrWhiteSpace(c1.Text))
+            {
+                return false;
+            }
+            else return true;
         }
 
         private void Cancel_PersonnelFile_Click(object sender, EventArgs e)

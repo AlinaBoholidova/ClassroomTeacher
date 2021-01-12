@@ -42,18 +42,36 @@ namespace Курсовая
 
         private void OK_Points_Click(object sender, EventArgs e)
         {
-            string place = placeTextBox.Text;
-            int points = Convert.ToInt32(pointsNumericUpDown.Value);
-
-            if (edit)
+            if (ValidateAll(placeTextBox))
             {
-                pointsDistributionTableAdapter.UpdateQuery(place, points, id);
+                string place = placeTextBox.Text;
+                int points = Convert.ToInt32(pointsNumericUpDown.Value);
+
+                if (edit)
+                {
+                    pointsDistributionTableAdapter.UpdateQuery(place, points, id);
+                }
+                else
+                {
+                    pointsDistributionTableAdapter.InsertQuery(place, points);
+                }
+                Close();
             }
+            
             else
             {
-                pointsDistributionTableAdapter.InsertQuery(place, points);
+                MessageBox.Show("Перевірте заповненість полів.", "Повідомлення");
             }
-            Close();
         }
+
+        private bool ValidateAll(Control c1)
+        {
+            if (string.IsNullOrWhiteSpace(c1.Text))
+            {
+                return false;
+            }
+            else return true;
+        }
+
     }
 }

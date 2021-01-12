@@ -31,9 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Subjects));
             this.subjectsDataGridView = new System.Windows.Forms.DataGridView();
+            this.subjectabbrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.schoolCourseDataSet = new Курсовая.SchoolCourseDataSet();
             this.testsDataGridView = new System.Windows.Forms.DataGridView();
+            this.testIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectabbrDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.testdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.testBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.allCheckBox_Subjects = new System.Windows.Forms.CheckBox();
             this.abbrCheckBox_Subjects = new System.Windows.Forms.CheckBox();
@@ -76,11 +81,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.back_Subjects = new System.Windows.Forms.PictureBox();
-            this.subjectabbrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subjectnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subjectabbrDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.testdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.subjectsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
@@ -111,6 +111,23 @@
             this.subjectsDataGridView.Size = new System.Drawing.Size(293, 226);
             this.subjectsDataGridView.TabIndex = 0;
             // 
+            // subjectabbrDataGridViewTextBoxColumn
+            // 
+            this.subjectabbrDataGridViewTextBoxColumn.DataPropertyName = "Subject_abbr";
+            this.subjectabbrDataGridViewTextBoxColumn.HeaderText = "Абревіатура предмету";
+            this.subjectabbrDataGridViewTextBoxColumn.Name = "subjectabbrDataGridViewTextBoxColumn";
+            this.subjectabbrDataGridViewTextBoxColumn.ReadOnly = true;
+            this.subjectabbrDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // subjectnameDataGridViewTextBoxColumn
+            // 
+            this.subjectnameDataGridViewTextBoxColumn.DataPropertyName = "Subject_name";
+            this.subjectnameDataGridViewTextBoxColumn.HeaderText = "Назва предмету";
+            this.subjectnameDataGridViewTextBoxColumn.Name = "subjectnameDataGridViewTextBoxColumn";
+            this.subjectnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.subjectnameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.subjectnameDataGridViewTextBoxColumn.Width = 150;
+            // 
             // subjectBindingSource
             // 
             this.subjectBindingSource.DataMember = "Subject";
@@ -139,6 +156,31 @@
             this.testsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.testsDataGridView.Size = new System.Drawing.Size(373, 226);
             this.testsDataGridView.TabIndex = 1;
+            // 
+            // testIDDataGridViewTextBoxColumn
+            // 
+            this.testIDDataGridViewTextBoxColumn.DataPropertyName = "Test_ID";
+            this.testIDDataGridViewTextBoxColumn.HeaderText = "ID контрольної";
+            this.testIDDataGridViewTextBoxColumn.Name = "testIDDataGridViewTextBoxColumn";
+            this.testIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.testIDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // subjectabbrDataGridViewTextBoxColumn1
+            // 
+            this.subjectabbrDataGridViewTextBoxColumn1.DataPropertyName = "Subject_abbr";
+            this.subjectabbrDataGridViewTextBoxColumn1.HeaderText = "Абревіатура предмету";
+            this.subjectabbrDataGridViewTextBoxColumn1.Name = "subjectabbrDataGridViewTextBoxColumn1";
+            this.subjectabbrDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.subjectabbrDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // testdateDataGridViewTextBoxColumn
+            // 
+            this.testdateDataGridViewTextBoxColumn.DataPropertyName = "Test_date";
+            this.testdateDataGridViewTextBoxColumn.HeaderText = "Дата написання";
+            this.testdateDataGridViewTextBoxColumn.Name = "testdateDataGridViewTextBoxColumn";
+            this.testdateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.testdateDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.testdateDataGridViewTextBoxColumn.Width = 110;
             // 
             // testBindingSource
             // 
@@ -369,6 +411,8 @@
             this.fromDateTimePicker.Name = "fromDateTimePicker";
             this.fromDateTimePicker.Size = new System.Drawing.Size(233, 21);
             this.fromDateTimePicker.TabIndex = 65;
+            this.fromDateTimePicker.Value = new System.DateTime(2021, 1, 11, 0, 0, 0, 0);
+            this.fromDateTimePicker.ValueChanged += new System.EventHandler(this.fromDateTimePicker_ValueChanged);
             // 
             // toDateTimePicker
             // 
@@ -376,6 +420,7 @@
             this.toDateTimePicker.Name = "toDateTimePicker";
             this.toDateTimePicker.Size = new System.Drawing.Size(233, 21);
             this.toDateTimePicker.TabIndex = 66;
+            this.toDateTimePicker.ValueChanged += new System.EventHandler(this.toDateTimePicker_ValueChanged);
             // 
             // pictureBox5
             // 
@@ -573,48 +618,6 @@
             this.back_Subjects.TabIndex = 82;
             this.back_Subjects.TabStop = false;
             this.back_Subjects.Click += new System.EventHandler(this.back_Subjects_Click);
-            // 
-            // subjectabbrDataGridViewTextBoxColumn
-            // 
-            this.subjectabbrDataGridViewTextBoxColumn.DataPropertyName = "Subject_abbr";
-            this.subjectabbrDataGridViewTextBoxColumn.HeaderText = "Абревіатура предмету";
-            this.subjectabbrDataGridViewTextBoxColumn.Name = "subjectabbrDataGridViewTextBoxColumn";
-            this.subjectabbrDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subjectabbrDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // subjectnameDataGridViewTextBoxColumn
-            // 
-            this.subjectnameDataGridViewTextBoxColumn.DataPropertyName = "Subject_name";
-            this.subjectnameDataGridViewTextBoxColumn.HeaderText = "Назва предмету";
-            this.subjectnameDataGridViewTextBoxColumn.Name = "subjectnameDataGridViewTextBoxColumn";
-            this.subjectnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subjectnameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.subjectnameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // testIDDataGridViewTextBoxColumn
-            // 
-            this.testIDDataGridViewTextBoxColumn.DataPropertyName = "Test_ID";
-            this.testIDDataGridViewTextBoxColumn.HeaderText = "ID контрольної";
-            this.testIDDataGridViewTextBoxColumn.Name = "testIDDataGridViewTextBoxColumn";
-            this.testIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.testIDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // subjectabbrDataGridViewTextBoxColumn1
-            // 
-            this.subjectabbrDataGridViewTextBoxColumn1.DataPropertyName = "Subject_abbr";
-            this.subjectabbrDataGridViewTextBoxColumn1.HeaderText = "Абревіатура предмету";
-            this.subjectabbrDataGridViewTextBoxColumn1.Name = "subjectabbrDataGridViewTextBoxColumn1";
-            this.subjectabbrDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.subjectabbrDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // testdateDataGridViewTextBoxColumn
-            // 
-            this.testdateDataGridViewTextBoxColumn.DataPropertyName = "Test_date";
-            this.testdateDataGridViewTextBoxColumn.HeaderText = "Дата написання";
-            this.testdateDataGridViewTextBoxColumn.Name = "testdateDataGridViewTextBoxColumn";
-            this.testdateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.testdateDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.testdateDataGridViewTextBoxColumn.Width = 110;
             // 
             // pictureBox2
             // 

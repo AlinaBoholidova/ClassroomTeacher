@@ -4,6 +4,7 @@ using System.Data.Linq;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Курсовая.Parent;
 
 namespace Курсовая
 {
@@ -30,11 +31,12 @@ namespace Курсовая
             //Application.Run(new JournalRecord());
             //Application.Run(new Subjects());
             //Application.Run(new Payments());
-            Application.Run(new Rating());
+            //Application.Run(new Rating());
             //Application.Run(new AdditionalActivity());
-            //Application.Run(new Login());
+            Application.Run(new Login());
             //Application.Run(new Points());
             //Application.Run(new Payments());
+            //Application.Run(new PaymentsParent());
 
         }
     }

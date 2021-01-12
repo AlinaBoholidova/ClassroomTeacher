@@ -101,6 +101,8 @@ namespace Курсовая
             Close();
         }
 
+
+
         private void Cancel_Record_Click(object sender, EventArgs e)
         {
             Close();

@@ -363,5 +363,25 @@ namespace Курсовая
                 this.Hide();
             }
         }
+
+        private void fromDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (toDateTimePicker.Value < fromDateTimePicker.Value)
+            {
+                MessageBox.Show("Некоректні дати.");
+                fromDateTimePicker.Value = DateTime.Today;
+                toDateTimePicker.Value = DateTime.Today + TimeSpan.FromDays(1);
+            }
+        }
+
+        private void toDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (toDateTimePicker.Value < fromDateTimePicker.Value)
+            {
+                MessageBox.Show("Некоректні дати.");
+                fromDateTimePicker.Value = DateTime.Today;
+                toDateTimePicker.Value = DateTime.Today + TimeSpan.FromDays(1);
+            }
+        }
     }
 }

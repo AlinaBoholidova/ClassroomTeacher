@@ -72,14 +72,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.showAll_Rate = new System.Windows.Forms.Button();
             this.rateDataGridView = new System.Windows.Forms.DataGridView();
-            this.paymentDataGridView = new System.Windows.Forms.DataGridView();
-            this.showAll_Payment = new System.Windows.Forms.Button();
-            this.schoolCourseDataSet = new Курсовая.SchoolCourseDataSet();
-            this.rateBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.paymentRateTableAdapter = new Курсовая.SchoolCourseDataSetTableAdapters.PaymentRateTableAdapter();
             this.paymentRateIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentRatetypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rateBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.schoolCourseDataSet = new Курсовая.SchoolCourseDataSet();
+            this.paymentDataGridView = new System.Windows.Forms.DataGridView();
+            this.showAll_Payment = new System.Windows.Forms.Button();
+            this.paymentRateTableAdapter = new Курсовая.SchoolCourseDataSetTableAdapters.PaymentRateTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.toNumericUpDown_Rate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fromNumericUpDown_Rate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -87,9 +87,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.back_Payments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rateDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schoolCourseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rateBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schoolCourseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // rateIDCheckBox_Payment
@@ -201,6 +201,7 @@
             0,
             0,
             0});
+            this.toNumericUpDown_Rate.ValueChanged += new System.EventHandler(this.toNumericUpDown_Rate_ValueChanged);
             // 
             // fromNumericUpDown_Rate
             // 
@@ -228,6 +229,7 @@
             0,
             0,
             0});
+            this.fromNumericUpDown_Rate.ValueChanged += new System.EventHandler(this.fromNumericUpDown_Rate_ValueChanged);
             // 
             // label10
             // 
@@ -583,43 +585,6 @@
             this.rateDataGridView.Size = new System.Drawing.Size(306, 180);
             this.rateDataGridView.TabIndex = 168;
             // 
-            // paymentDataGridView
-            // 
-            this.paymentDataGridView.AllowUserToAddRows = false;
-            this.paymentDataGridView.AllowUserToDeleteRows = false;
-            this.paymentDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.paymentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.paymentDataGridView.Location = new System.Drawing.Point(111, 149);
-            this.paymentDataGridView.Name = "paymentDataGridView";
-            this.paymentDataGridView.ReadOnly = true;
-            this.paymentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.paymentDataGridView.Size = new System.Drawing.Size(414, 180);
-            this.paymentDataGridView.TabIndex = 167;
-            // 
-            // showAll_Payment
-            // 
-            this.showAll_Payment.Location = new System.Drawing.Point(402, 116);
-            this.showAll_Payment.Name = "showAll_Payment";
-            this.showAll_Payment.Size = new System.Drawing.Size(109, 27);
-            this.showAll_Payment.TabIndex = 169;
-            this.showAll_Payment.Text = "Показати всі";
-            this.showAll_Payment.UseVisualStyleBackColor = true;
-            this.showAll_Payment.Click += new System.EventHandler(this.showAll_Payment_Click);
-            // 
-            // schoolCourseDataSet
-            // 
-            this.schoolCourseDataSet.DataSetName = "SchoolCourseDataSet";
-            this.schoolCourseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rateBindingSource
-            // 
-            this.rateBindingSource.DataMember = "PaymentRate";
-            this.rateBindingSource.DataSource = this.schoolCourseDataSet;
-            // 
-            // paymentRateTableAdapter
-            // 
-            this.paymentRateTableAdapter.ClearBeforeFill = true;
-            // 
             // paymentRateIDDataGridViewTextBoxColumn
             // 
             this.paymentRateIDDataGridViewTextBoxColumn.DataPropertyName = "PaymentRate_ID";
@@ -643,6 +608,43 @@
             this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
             this.sumDataGridViewTextBoxColumn.ReadOnly = true;
             this.sumDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // rateBindingSource
+            // 
+            this.rateBindingSource.DataMember = "PaymentRate";
+            this.rateBindingSource.DataSource = this.schoolCourseDataSet;
+            // 
+            // schoolCourseDataSet
+            // 
+            this.schoolCourseDataSet.DataSetName = "SchoolCourseDataSet";
+            this.schoolCourseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // paymentDataGridView
+            // 
+            this.paymentDataGridView.AllowUserToAddRows = false;
+            this.paymentDataGridView.AllowUserToDeleteRows = false;
+            this.paymentDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.paymentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.paymentDataGridView.Location = new System.Drawing.Point(111, 149);
+            this.paymentDataGridView.Name = "paymentDataGridView";
+            this.paymentDataGridView.ReadOnly = true;
+            this.paymentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.paymentDataGridView.Size = new System.Drawing.Size(414, 180);
+            this.paymentDataGridView.TabIndex = 167;
+            // 
+            // showAll_Payment
+            // 
+            this.showAll_Payment.Location = new System.Drawing.Point(402, 116);
+            this.showAll_Payment.Name = "showAll_Payment";
+            this.showAll_Payment.Size = new System.Drawing.Size(109, 27);
+            this.showAll_Payment.TabIndex = 169;
+            this.showAll_Payment.Text = "Показати всі";
+            this.showAll_Payment.UseVisualStyleBackColor = true;
+            this.showAll_Payment.Click += new System.EventHandler(this.showAll_Payment_Click);
+            // 
+            // paymentRateTableAdapter
+            // 
+            this.paymentRateTableAdapter.ClearBeforeFill = true;
             // 
             // PaymentsParent
             // 
@@ -707,9 +709,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.back_Payments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rateDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.paymentDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schoolCourseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rateBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schoolCourseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

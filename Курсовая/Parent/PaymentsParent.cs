@@ -389,5 +389,25 @@ namespace Курсовая.Parent
                 }
             }
         }
+
+        private void fromNumericUpDown_Rate_ValueChanged(object sender, EventArgs e)
+        {
+            if (toNumericUpDown_Rate.Value < fromNumericUpDown_Rate.Value)
+            {
+                MessageBox.Show("Некоректні суми.");
+                fromNumericUpDown_Rate.Value = 100;
+                toNumericUpDown_Rate.Value = 110;
+            }
+        }
+
+        private void toNumericUpDown_Rate_ValueChanged(object sender, EventArgs e)
+        {
+            if (toNumericUpDown_Rate.Value < fromNumericUpDown_Rate.Value)
+            {
+                MessageBox.Show("Некоректні суми.");
+                fromNumericUpDown_Rate.Value = 100;
+                toNumericUpDown_Rate.Value = 110;
+            }
+        }
     }
 }

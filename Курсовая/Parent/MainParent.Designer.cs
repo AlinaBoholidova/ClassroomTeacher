@@ -322,6 +322,7 @@
             this.Name = "MainParent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Головна";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainParent_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

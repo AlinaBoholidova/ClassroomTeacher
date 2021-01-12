@@ -42,17 +42,34 @@ namespace Курсовая
 
         private void OK_Subject_Click(object sender, EventArgs e)
         {
-            string newAbbr = subject_abbrTextBox.Text;
-            if (edit)
+            if (ValidateAll(subject_nameTextBox)&&ValidateAll(subject_abbrTextBox))
             {
-                subjectTableAdapter.UpdateQuery(newAbbr, Convert.ToString(subject_nameTextBox.Text), abbr);
+                string newAbbr = subject_abbrTextBox.Text;
+                if (edit)
+                {
+                    subjectTableAdapter.UpdateQuery(newAbbr, Convert.ToString(subject_nameTextBox.Text), abbr);
+                }
+                else
+                {
+                    subjectTableAdapter.InsertQuery(abbr, Convert.ToString(subject_nameTextBox.Text));
+                }
+
+                Close();
             }
             else
             {
-                subjectTableAdapter.InsertQuery(abbr, Convert.ToString(subject_nameTextBox.Text));
+                MessageBox.Show("Перевірте заповненість полів.", "Повідомлення");
             }
 
-            Close();
+        }
+
+        private bool ValidateAll(Control c1)
+        {
+            if (string.IsNullOrWhiteSpace(c1.Text))
+            {
+                return false;
+            }
+            else return true;
         }
     }
 }

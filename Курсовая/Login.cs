@@ -59,7 +59,7 @@ namespace Курсовая
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            Application.ExitThread();
         }
     }
 }
