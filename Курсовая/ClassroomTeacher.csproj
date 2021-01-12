@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E443BA38-C6D6-44AB-B2A5-3D640427C0EA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Курсовая</RootNamespace>
+    <AssemblyName>ClassroomTeacher</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1427.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1427.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1427.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1427.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1427.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdditionalActivity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdditionalActivity.Designer.cs">
+      <DependentUpon>AdditionalActivity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdditionalActivityData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdditionalActivityData.Designer.cs">
+      <DependentUpon>AdditionalActivityData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdditionalParticipation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdditionalParticipation.Designer.cs">
+      <DependentUpon>AdditionalParticipation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JournalRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JournalRecord.Designer.cs">
+      <DependentUpon>JournalRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JournalRecordData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JournalRecordData.Designer.cs">
+      <DependentUpon>JournalRecordData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentData.Designer.cs">
+      <DependentUpon>PaymentData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="PaymentRate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentRate.Designer.cs">
+      <DependentUpon>PaymentRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payments.Designer.cs">
+      <DependentUpon>Payments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonnelFile.Designer.cs">
+      <DependentUpon>PersonnelFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonnelFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonnelFiles.Designer.cs">
+      <DependentUpon>PersonnelFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Points.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Points.Designer.cs">
+      <DependentUpon>Points.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PointsData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PointsData.Designer.cs">
+      <DependentUpon>PointsData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PupilData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PupilData.Designer.cs">
+      <DependentUpon>PupilData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pupils.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pupils.Designer.cs">
+      <DependentUpon>Pupils.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QueryEdit.Designer.cs">
+      <DependentUpon>QueryEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rating.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rating.Designer.cs">
+      <DependentUpon>Rating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolCourseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolCourseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Statistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistics.Designer.cs">
+      <DependentUpon>Statistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subject.Designer.cs">
+      <DependentUpon>Subject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subjects.Designer.cs">
+      <DependentUpon>Subjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Reports\ViewReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ViewReceipt.Designer.cs">
+      <DependentUpon>ViewReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ViewScores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ViewScores.Designer.cs">
+      <DependentUpon>ViewScores.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdditionalActivity.resx">
+      <DependentUpon>AdditionalActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdditionalActivityData.resx">
+      <DependentUpon>AdditionalActivityData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdditionalParticipation.resx">
+      <DependentUpon>AdditionalParticipation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JournalRecord.resx">
+      <DependentUpon>JournalRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JournalRecordData.resx">
+      <DependentUpon>JournalRecordData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentData.resx">
+      <DependentUpon>PaymentData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentRate.resx">
+      <DependentUpon>PaymentRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payments.resx">
+      <DependentUpon>Payments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonnelFile.resx">
+      <DependentUpon>PersonnelFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonnelFiles.resx">
+      <DependentUpon>PersonnelFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Points.resx">
+      <DependentUpon>Points.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PointsData.resx">
+      <DependentUpon>PointsData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="PupilData.resx">
+      <DependentUpon>PupilData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pupils.resx">
+      <DependentUpon>Pupils.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryEdit.resx">
+      <DependentUpon>QueryEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rating.resx">
+      <DependentUpon>Rating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Receipt.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Scores.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistics.resx">
+      <DependentUpon>Statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subject.resx">
+      <DependentUpon>Subject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subjects.resx">
+      <DependentUpon>Subjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ViewReceipt.resx">
+      <DependentUpon>ViewReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ViewScores.resx">
+      <DependentUpon>ViewScores.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SchoolCourseDataSet.xsc">
+      <DependentUpon>SchoolCourseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SchoolCourseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SchoolCourseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SchoolCourseDataSet.xss">
+      <DependentUpon>SchoolCourseDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+    <None Include="Resources\password.png" />
+    <None Include="Resources\back.jpg" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\subject.png" />
+    <None Include="Resources\payment.png" />
+    <None Include="Resources\activity.png" />
+    <None Include="Resources\file.png" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\rating.png" />
+    <None Include="Resources\back_pupil.jpg" />
+    <None Include="Resources\goback.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\icon.png" />
+    <None Include="Resources\back_subject.jpg" />
+    <None Include="Resources\back_subject1.jpg" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
