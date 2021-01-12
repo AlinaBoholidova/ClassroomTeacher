@@ -24,6 +24,12 @@ namespace Курсовая
         public JournalRecord(string status) : this()
         {
             this.status = status;
+            if (status == "Один з батьків/Опікун")
+            {
+                add_Record.Hide();
+                edit_Record.Hide();
+                delete_Record.Hide();
+            }
         }
 
         private void JournalRecord_Load(object sender, EventArgs e)

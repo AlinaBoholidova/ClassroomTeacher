@@ -30,6 +30,15 @@ namespace Курсовая
                 edit_Activity.Enabled = false;
                 delete_Activity.Enabled = false;
             }
+            if (status == "Один з батьків/Опікун")
+            {
+                add_Activity.Hide();
+                edit_Activity.Hide();
+                delete_Activity.Hide();
+                add_Participation.Hide();
+                edit_Participation.Hide();
+                delete_Participation.Hide();
+            }
         }
 
         private void AdditionalActivity_Load(object sender, EventArgs e)

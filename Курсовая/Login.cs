@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Курсовая.Parent;
 
 namespace Курсовая
 {
@@ -30,9 +31,18 @@ namespace Курсовая
                 User user = db.GetTable<User>().Where(t => t.Login == loginTextBox_Login.Text && 
                     t.Password == passwordTextBox_Login.Text).Single();
                 string status = user.Status;
-                Main main = new Main(status);
-                this.Hide();
-                main.Show();
+                if (user.Status == "Один з батьків/Опікун")
+                {
+                    MainParent main = new MainParent(user);
+                    this.Hide();
+                    main.Show();
+                }
+                else
+                {
+                    Main main = new Main(status);
+                    this.Hide();
+                    main.Show();
+                }
             }
             catch
             {

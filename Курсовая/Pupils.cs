@@ -24,6 +24,13 @@ namespace Курсовая
         public Pupils(string status) : this()
         {
             this.status = status;
+            if (status == "Один з батьків/Опікун")
+            {
+                personnelFileButton_Pupils.Hide();
+                add_Pupils.Hide();
+                edit_Pupils.Hide();
+                delete_Pupils.Hide();
+            }
         }
 
         private void Учні_Load(object sender, EventArgs e)

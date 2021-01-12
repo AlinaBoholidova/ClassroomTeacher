@@ -111,6 +111,30 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Parent\MainParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parent\MainParent.Designer.cs">
+      <DependentUpon>MainParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parent\PaymentsParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parent\PaymentsParent.Designer.cs">
+      <DependentUpon>PaymentsParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parent\PersonnelFileParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parent\PersonnelFileParent.Designer.cs">
+      <DependentUpon>PersonnelFileParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parent\ViewReceiptParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parent\ViewReceiptParent.Designer.cs">
+      <DependentUpon>ViewReceiptParent.cs</DependentUpon>
+    </Compile>
     <Compile Include="PaymentData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +268,18 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Parent\MainParent.resx">
+      <DependentUpon>MainParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parent\PaymentsParent.resx">
+      <DependentUpon>PaymentsParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parent\PersonnelFileParent.resx">
+      <DependentUpon>PersonnelFileParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parent\ViewReceiptParent.resx">
+      <DependentUpon>ViewReceiptParent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PaymentData.resx">
       <DependentUpon>PaymentData.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,8 +406,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Parent\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

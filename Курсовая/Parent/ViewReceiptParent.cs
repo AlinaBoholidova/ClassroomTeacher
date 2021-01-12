@@ -10,24 +10,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Курсовая
+namespace Курсовая.Parent
 {
-    public partial class ViewReceipt : Form
+    public partial class ViewReceiptParent : Form
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
-        readonly string status;
+        User user;
 
-        public ViewReceipt()
+        public ViewReceiptParent()
         {
             InitializeComponent();
         }
 
-        public ViewReceipt(string status) : this()
+        public ViewReceiptParent(User user) : this()
         {
-            this.status = status;
+            this.user = user;
         }
 
-        private void ViewReceipt_Load(object sender, EventArgs e)
+        private void back_Receipt_Click(object sender, EventArgs e)
+        {
+            MainParent main = new MainParent(user);
+            main.Show();
+            this.Hide();
+        }
+
+        private void ViewReceiptParent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MainParent main = new MainParent(user);
+            main.Show();
+            this.Hide();
+        }
+
+        private void ViewReceiptParent_Load(object sender, EventArgs e)
         {
             try
             {
@@ -35,7 +49,7 @@ namespace Курсовая
                 "PaymentRate.Sum, Payment.Month " +
                 "FROM Pupil INNER JOIN Payment ON Pupil.Pupil_ID = Payment.Pupil_ID INNER JOIN " +
                 "PaymentRate ON Payment.PaymentRate_ID = PaymentRate.PaymentRate_ID " +
-                $"WHERE Payment.Paid = 0";
+                $"WHERE Pupil_ID = {Convert.ToInt32(user.Password)} AND Payment.Paid = 0";
 
                 SqlConnection sqlconn = new SqlConnection(ConnectionString);
                 sqlconn.Open();
@@ -53,8 +67,9 @@ namespace Курсовая
             }
             catch
             {
-                MessageBox.Show("Боржників немає.", "Повідомлення");
+                MessageBox.Show("Ваша дитина не має боргів.", "Повідомлення");
             }
+            
         }
 
         private void receiptPreviewButton_Click(object sender, EventArgs e)
@@ -88,22 +103,10 @@ namespace Курсовая
             }
             catch
             {
-                MessageBox.Show("Боржників немає.", "Повідомлення");
+                MessageBox.Show("Ваша дитина не має боргів.", "Повідомлення");
             }
+            
         }
 
-        private void back_Receipt_Click(object sender, EventArgs e)
-        {
-            Main main = new Main(status);
-            main.Show();
-            this.Hide();
-        }
-
-        private void ViewReceipt_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Main main = new Main(status);
-            main.Show();
-            this.Hide();
-        }
     }
 }

@@ -24,6 +24,15 @@ namespace Курсовая
         public Subjects(string status) : this()
         {
             this.status = status;
+            if (status == "Один з батьків/Опікун")
+            {
+                add_Subjects.Hide();
+                edit_Subjects.Hide();
+                delete_Subjects.Hide();
+                add_Tests.Hide();
+                edit_Tests.Hide();
+                delete_Tests.Hide();
+            }
         }
 
         private void Subjects_Load(object sender, EventArgs e)
