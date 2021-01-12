@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Курсовая.Parent;
 
 namespace Курсовая
 {
@@ -15,6 +16,7 @@ namespace Курсовая
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
         readonly string status;
+        User user;
 
         public Pupils()
         {
@@ -24,6 +26,12 @@ namespace Курсовая
         public Pupils(string status) : this()
         {
             this.status = status;
+        }
+
+        public Pupils(User user, string status) : this()
+        {
+            this.status = status;
+            this.user = user;
             if (status == "Один з батьків/Опікун")
             {
                 personnelFileButton_Pupils.Hide();
@@ -280,16 +288,34 @@ namespace Курсовая
 
         private void back_Pupils_Click(object sender, EventArgs e)
         {
-            Main main = new Main(status);
-            main.Show();
-            this.Hide();
+            if (status == "Один з батьків/Опікун")
+            {
+                MainParent main = new MainParent(user, status);
+                main.Show();
+                this.Hide();
+            }
+            else
+            {
+                Main main = new Main(status);
+                main.Show();
+                this.Hide();
+            }
         }
 
         private void Pupils_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Main main = new Main(status);
-            main.Show();
-            this.Hide();
+            if (status == "Один з батьків/Опікун")
+            {
+                MainParent main = new MainParent(user, status);
+                main.Show();
+                this.Hide();
+            }
+            else
+            {
+                Main main = new Main(status);
+                main.Show();
+                this.Hide();
+            }
         }
 
     }

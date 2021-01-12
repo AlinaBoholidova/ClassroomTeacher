@@ -435,14 +435,5 @@ namespace Курсовая
             }
         }
 
-        private void fromNumericUpDown_Rate_ValueChanged(object sender, EventArgs e)
-        {
-            toNumericUpDown_Rate.Minimum = toNumericUpDown_Rate.Value + 10;
-        }
-
-        private void toNumericUpDown_Rate_ValueChanged(object sender, EventArgs e)
-        {
-            fromNumericUpDown_Rate.Maximum = toNumericUpDown_Rate.Value - 10;
-        }
     }
 }

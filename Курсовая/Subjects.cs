@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Курсовая.Parent;
 
 namespace Курсовая
 {
@@ -15,14 +16,20 @@ namespace Курсовая
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
         readonly string status;
+        User user;
 
         public Subjects()
         {
             InitializeComponent();
         }
-
         public Subjects(string status) : this()
         {
+            this.status = status;
+        }
+
+        public Subjects(User user, string status) : this()
+        {
+            this.user = user;
             this.status = status;
             if (status == "Один з батьків/Опікун")
             {
@@ -45,9 +52,18 @@ namespace Курсовая
 
         private void Subjects_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Main main = new Main(status);
-            main.Show();
-            this.Hide();
+            if (status == "Один з батьків/Опікун")
+            {
+                MainParent main = new MainParent(user, status);
+                main.Show();
+                this.Hide();
+            }
+            else
+            {
+                Main main = new Main(status);
+                main.Show();
+                this.Hide();
+            }
         }
 
         // Tests
@@ -334,9 +350,18 @@ namespace Курсовая
 
         private void back_Subjects_Click(object sender, EventArgs e)
         {
-            Main main = new Main(status);
-            main.Show();
-            this.Hide();
+            if (status == "Один з батьків/Опікун")
+            {
+                MainParent main = new MainParent(user, status);
+                main.Show();
+                this.Hide();
+            }
+            else
+            {
+                Main main = new Main(status);
+                main.Show();
+                this.Hide();
+            }
         }
     }
 }

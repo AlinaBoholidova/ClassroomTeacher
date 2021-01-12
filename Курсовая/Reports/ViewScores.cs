@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Курсовая.Parent;
 
 namespace Курсовая
 {
@@ -16,6 +17,7 @@ namespace Курсовая
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
         readonly string status;
+        User user;
 
         public ViewScores()
         {
@@ -25,6 +27,12 @@ namespace Курсовая
         public ViewScores(string status) : this()
         {
             this.status = status;
+        }
+
+        public ViewScores(User user, string status) : this()
+        {
+            this.status = status;
+            this.user = user;
         }
 
         private void ViewScores_Load(object sender, EventArgs e)
@@ -156,16 +164,34 @@ namespace Курсовая
 
         private void ViewScores_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Main main = new Main(status);
-            main.Show();
-            this.Hide();
+            if (status == "Один з батьків/Опікун")
+            {
+                MainParent main = new MainParent(user, status);
+                main.Show();
+                this.Hide();
+            }
+            else
+            {
+                Main main = new Main(status);
+                main.Show();
+                this.Hide();
+            }
         }
 
         private void back_Scores_Click(object sender, EventArgs e)
         {
-            Main main = new Main(status);
-            main.Show();
-            this.Hide();
+            if (status == "Один з батьків/Опікун")
+            {
+                MainParent main = new MainParent(user, status);
+                main.Show();
+                this.Hide();
+            }
+            else
+            {
+                Main main = new Main(status);
+                main.Show();
+                this.Hide();
+            }
         }
     }
 }

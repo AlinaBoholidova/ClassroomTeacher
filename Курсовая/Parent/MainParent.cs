@@ -25,18 +25,25 @@ namespace Курсовая.Parent
             this.user = user;
         }
 
+        public MainParent(User user, string status) : this()
+        {
+            this.user = user;
+        }
+
         private void exitPictureBox_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Ви дійсно хочете вийти з програми?", "Вихід",
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Application.Exit();
+                Login login = new Login();
+                login.Show();
+                this.Hide();
             }
         }
 
         private void pupilsButton_Main_Click(object sender, EventArgs e)
         {
-            Pupils pupils = new Pupils(status);
+            Pupils pupils = new Pupils(user, status);
             pupils.Show();
             this.Hide();
         }
@@ -50,21 +57,21 @@ namespace Курсовая.Parent
 
         private void testsSubjectsButton_Main_Click(object sender, EventArgs e)
         {
-            Subjects subjects = new Subjects(status);
+            Subjects subjects = new Subjects(user, status);
             subjects.Show();
             this.Hide();
         }
 
         private void journalRecordsButton_Click(object sender, EventArgs e)
         {
-            JournalRecord journal = new JournalRecord(status);
+            JournalRecord journal = new JournalRecord(user, status);
             journal.Show();
             this.Hide();
         }
 
         private void addActivityButton_Click(object sender, EventArgs e)
         {
-            AdditionalActivity activity = new AdditionalActivity(status);
+            AdditionalActivity activity = new AdditionalActivity(user, status);
             activity.Show();
             this.Hide();
         }
@@ -92,7 +99,7 @@ namespace Курсовая.Parent
 
         private void scoresButton_Click(object sender, EventArgs e)
         {
-            ViewScores subjects = new ViewScores(status);
+            ViewScores subjects = new ViewScores(user, status);
             subjects.Show();
             this.Hide();
         }

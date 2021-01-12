@@ -84,6 +84,9 @@ namespace Курсовая
                 ratingDataGridView.Rows.Add(keyValue.Key, keyValue.Value);
             }
 
+            int checkIDonPayment;
+            string select = "";
+
             int pcount = value.Count;
             List<double> percent = new List<double>();
             double highlow = Math.Round(pcount * 0.1, 0);
@@ -91,8 +94,8 @@ namespace Курсовая
             percent.Add(highlow);
             percent.Add(rest);
 
-            string selectMax = "SELECT PaymentRate_ID FROM PaymentRate WHERE Sum = (SELECT MAX(Sum FROM PaymentRate))";
-            string selectMin = "SELECT PaymentRate_ID FROM PaymentRate WHERE Sum = (SELECT MIN(Sum FROM PaymentRate))";
+            string selectMax = "SELECT PaymentRate_ID FROM PaymentRate WHERE Sum = (SELECT MAX(Sum) FROM PaymentRate)";
+            string selectMin = "SELECT PaymentRate_ID FROM PaymentRate WHERE Sum = (SELECT MIN(Sum) FROM PaymentRate)";
             string selectCom = "SELECT PaymentRate_ID FROM PaymentRate WHERE PaymentRate_type = 'Стандартний'";
             SqlConnection sqlconn = new SqlConnection(ConnectionString);
             SqlCommand maxCommand = new SqlCommand(selectMax, sqlconn);
@@ -142,39 +145,70 @@ namespace Курсовая
             monthYear.Add(12, "грудень");
             string selectMonth = monthYear[month];
 
+            string checkPayment = $"SELECT Pupil_ID FROM Payment WHERE ";
+
             DataContext db = new DataContext(ConnectionString);
             Table<Payment> users = db.GetTable<Payment>();
+
             List<Payment> payments = new List<Payment>();
             for (int i = 0; i < highlow; i++)
             {
-                Payment payment = new Payment
+                Payment check = new Payment { Pupil_ID = value.ElementAt(i).Key, Month = selectMonth };
+                var result = users.Where(user => user.Pupil_ID == check.Pupil_ID && user.Month == check.Month).ToList();
+                if (result == null)
                 {
-                    Pupil_ID = value.ElementAt(i).Key,
-                    PaymentRate_ID = lstMin[0],
-                    Month = selectMonth
-                };
-                db.GetTable<Payment>().InsertOnSubmit(payment);
+                    Payment payment = new Payment
+                    {
+                        Pupil_ID = value.ElementAt(i).Key,
+                        PaymentRate_ID = lstMin[0],
+                        Month = selectMonth
+                    };
+                    db.GetTable<Payment>().InsertOnSubmit(payment);
+                }
+                else
+                {
+                    MessageBox.Show("Запис з такою оплатою вже існує.", "Повідомлення");
+                }
             }
             int top = Convert.ToInt32(highlow);
             for (int i = top; i < count - top; i++)
             {
-                Payment payment = new Payment
+                Payment check = new Payment { Pupil_ID = value.ElementAt(i).Key, Month = selectMonth };
+                var result = users.Where(user => user.Pupil_ID == check.Pupil_ID && user.Month == check.Month).ToList();
+                if (result == null)
                 {
-                    Pupil_ID = value.ElementAt(i).Key,
-                    PaymentRate_ID = lstCom[0],
-                    Month = selectMonth
-                };
-                db.GetTable<Payment>().InsertOnSubmit(payment);
+                    Payment payment = new Payment
+                    {
+                        Pupil_ID = value.ElementAt(i).Key,
+                        PaymentRate_ID = lstCom[0],
+                        Month = selectMonth
+                    };
+                    db.GetTable<Payment>().InsertOnSubmit(payment);
+                }
+                else
+                {
+                    MessageBox.Show("Запис з такою оплатою вже існує.", "Повідомлення");
+                }
             }
             for (int i = count - top; i < count; i++)
             {
-                Payment payment = new Payment
+                Payment check = new Payment { Pupil_ID = value.ElementAt(i).Key, Month = selectMonth };
+                var result = users.Where(user => user.Pupil_ID == check.Pupil_ID && user.Month == check.Month).ToList();
+
+                if (result == null)
                 {
-                    Pupil_ID = value.ElementAt(i).Key,
-                    PaymentRate_ID = lstMax[0],
-                    Month = selectMonth
-                };
-                db.GetTable<Payment>().InsertOnSubmit(payment);
+                    Payment payment = new Payment
+                    {
+                        Pupil_ID = value.ElementAt(i).Key,
+                        PaymentRate_ID = lstMax[0],
+                        Month = selectMonth
+                    };
+                    db.GetTable<Payment>().InsertOnSubmit(payment);
+                }
+                else
+                {
+                    MessageBox.Show("Запис з такою оплатою вже існує.", "Повідомлення");
+                }
             }
             db.SubmitChanges();
 

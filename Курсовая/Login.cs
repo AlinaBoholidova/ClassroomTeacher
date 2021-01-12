@@ -33,7 +33,7 @@ namespace Курсовая
                 string status = user.Status;
                 if (user.Status == "Один з батьків/Опікун")
                 {
-                    MainParent main = new MainParent(user);
+                    MainParent main = new MainParent(user, status);
                     this.Hide();
                     main.Show();
                 }

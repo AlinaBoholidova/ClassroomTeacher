@@ -201,7 +201,6 @@
             0,
             0,
             0});
-            this.toNumericUpDown_Rate.ValueChanged += new System.EventHandler(this.toNumericUpDown_Rate_ValueChanged);
             // 
             // fromNumericUpDown_Rate
             // 
@@ -229,7 +228,6 @@
             0,
             0,
             0});
-            this.fromNumericUpDown_Rate.ValueChanged += new System.EventHandler(this.fromNumericUpDown_Rate_ValueChanged);
             // 
             // label10
             // 

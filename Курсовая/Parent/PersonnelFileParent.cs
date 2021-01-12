@@ -39,6 +39,13 @@ namespace Курсовая.Parent
             DataTable skipsDT = new DataTable();
             skipsDA.Fill(skipsDT);
             pfilesDataGridView.DataSource = skipsDT;
+
+            pfilesDataGridView.Columns[0].HeaderText = "ID учня";
+            pfilesDataGridView.Columns[1].HeaderText = "ПІБ матері";
+            pfilesDataGridView.Columns[2].HeaderText = "ПІБ батька";
+            pfilesDataGridView.Columns[3].HeaderText = "ПІБ опікуна";
+            pfilesDataGridView.Columns[4].HeaderText = "Адреса";
+            pfilesDataGridView.Columns[5].HeaderText = "Телефон";
         }
 
         private void edit_PersonnelFiles_Click(object sender, EventArgs e)

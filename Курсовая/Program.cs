@@ -30,22 +30,11 @@ namespace Курсовая
             //Application.Run(new JournalRecord());
             //Application.Run(new Subjects());
             //Application.Run(new Payments());
-            //Application.Run(new Rating());
+            Application.Run(new Rating());
             //Application.Run(new AdditionalActivity());
-            Application.Run(new Login());
+            //Application.Run(new Login());
             //Application.Run(new Points());
             //Application.Run(new Payments());
-
-            //DataContext db = new DataContext(СonnectionString);
-
-            //// Получаем таблицу пользователей
-            //Table<User> users = db.GetTable<User>();
-
-            //foreach (var user in users)
-            //{
-            //    Console.WriteLine("{0} \t{1} \t{2} \t{3}", user.User_ID, user.Login, user.Password, user.Status);
-            //}
-            //Console.ReadKey();
 
         }
     }

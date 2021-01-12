@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Курсовая.Parent;
 
 namespace Курсовая
 {
@@ -15,10 +16,32 @@ namespace Курсовая
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
         readonly string status;
+        User user;
 
         public AdditionalActivity()
         {
             InitializeComponent();
+        }
+
+        public AdditionalActivity(User user, string status) : this()
+        {
+            this.user = user;
+            this.status = status;
+            if (status == "Класний керівник")
+            {
+                add_Activity.Enabled = false;
+                edit_Activity.Enabled = false;
+                delete_Activity.Enabled = false;
+            }
+            if (status == "Один з батьків/Опікун")
+            {
+                add_Activity.Hide();
+                edit_Activity.Hide();
+                delete_Activity.Hide();
+                add_Participation.Hide();
+                edit_Participation.Hide();
+                delete_Participation.Hide();
+            }
         }
 
         public AdditionalActivity(string status) : this()
@@ -133,16 +156,34 @@ namespace Курсовая
 
         private void back_AddActivity_Click(object sender, EventArgs e)
         {
-            Main main = new Main(status);
-            this.Hide();
-            main.Show();
+            if (status == "Один з батьків/Опікун")
+            {
+                MainParent main = new MainParent(user, status);
+                main.Show();
+                this.Hide();
+            }
+            else
+            {
+                Main main = new Main(status);
+                main.Show();
+                this.Hide();
+            }
         }
 
         private void AdditionalActivity_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Main main = new Main(status);
-            this.Hide();
-            main.Show();
+            if (status == "Один з батьків/Опікун")
+            {
+                MainParent main = new MainParent(user, status);
+                main.Show();
+                this.Hide();
+            }
+            else
+            {
+                Main main = new Main(status);
+                main.Show();
+                this.Hide();
+            }
         }
 
         private void toSearch_Participation_Click(object sender, EventArgs e)
