@@ -232,7 +232,7 @@ namespace Курсовая
                 {
                     SqlConnection sqlconn = new SqlConnection(ConnectionString);
                     sqlconn.Open();
-                    if (gender != "" & month != "")
+                    if (gender != "" && month != "")
                     {
                         SqlDataAdapter da = new SqlDataAdapter(select + select_gender + gender + "' AND " +
                             select_month + month, sqlconn);
@@ -241,7 +241,7 @@ namespace Курсовая
                         pupilDataGridView.DataSource = dt;
                         sqlconn.Close();
                     }
-                    else if (gender != "" & month == "")
+                    else if (gender != "" && month == "")
                     {
                         SqlDataAdapter da = new SqlDataAdapter(select + select_gender + gender + "'", sqlconn);
                         DataTable dt = new DataTable();
@@ -249,7 +249,7 @@ namespace Курсовая
                         pupilDataGridView.DataSource = dt;
                         sqlconn.Close();
                     }
-                    else if (gender == "" & month != "")
+                    else if (gender == "" && month != "")
                     {
                         SqlDataAdapter da = new SqlDataAdapter(select + select_month + month, sqlconn);
                         DataTable dt = new DataTable();

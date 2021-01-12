@@ -94,7 +94,7 @@
             this.monthComboBox_Payment = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.rateIDCheckBox_Payment = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.paymentDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paymentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolCourseDataSet)).BeginInit();
@@ -454,7 +454,7 @@
             // 
             this.pupilIDCheckBox_Payment.AutoSize = true;
             this.pupilIDCheckBox_Payment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pupilIDCheckBox_Payment.Location = new System.Drawing.Point(567, 228);
+            this.pupilIDCheckBox_Payment.Location = new System.Drawing.Point(567, 224);
             this.pupilIDCheckBox_Payment.Name = "pupilIDCheckBox_Payment";
             this.pupilIDCheckBox_Payment.Size = new System.Drawing.Size(62, 17);
             this.pupilIDCheckBox_Payment.TabIndex = 124;
@@ -469,6 +469,7 @@
             this.toSearch_Payment.TabIndex = 123;
             this.toSearch_Payment.Text = "Знайти";
             this.toSearch_Payment.UseVisualStyleBackColor = true;
+            this.toSearch_Payment.Click += new System.EventHandler(this.toSearch_Payment_Click);
             // 
             // monthCheckBox_Payment
             // 
@@ -540,6 +541,7 @@
             this.toSearch_Rate.TabIndex = 130;
             this.toSearch_Rate.Text = "Знайти";
             this.toSearch_Rate.UseVisualStyleBackColor = true;
+            this.toSearch_Rate.Click += new System.EventHandler(this.toSearch_Rate_Click);
             // 
             // sumCheckBox_Rate
             // 
@@ -593,6 +595,7 @@
             this.toSort_Payment.TabIndex = 135;
             this.toSort_Payment.Text = "Сортувати";
             this.toSort_Payment.UseVisualStyleBackColor = true;
+            this.toSort_Payment.Click += new System.EventHandler(this.toSort_Payment_Click);
             // 
             // label4
             // 
@@ -625,6 +628,7 @@
             this.toSortButton_Rate.TabIndex = 138;
             this.toSortButton_Rate.Text = "Сортувати";
             this.toSortButton_Rate.UseVisualStyleBackColor = true;
+            this.toSortButton_Rate.Click += new System.EventHandler(this.toSortButton_Rate_Click);
             // 
             // label5
             // 
@@ -644,6 +648,7 @@
             this.toFilter_Payment.TabIndex = 141;
             this.toFilter_Payment.Text = "Фільтрувати";
             this.toFilter_Payment.UseVisualStyleBackColor = true;
+            this.toFilter_Payment.Click += new System.EventHandler(this.toFilter_Payment_Click);
             // 
             // label6
             // 
@@ -663,6 +668,7 @@
             this.toFilter_Rate.TabIndex = 148;
             this.toFilter_Rate.Text = "Фільтрувати";
             this.toFilter_Rate.UseVisualStyleBackColor = true;
+            this.toFilter_Rate.Click += new System.EventHandler(this.toFilter_Rate_Click);
             // 
             // toNumericUpDown_Rate
             // 
@@ -820,16 +826,16 @@
             this.label12.TabIndex = 161;
             this.label12.Text = "Сплачено";
             // 
-            // checkBox1
+            // rateIDCheckBox_Payment
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox1.Location = new System.Drawing.Point(567, 246);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(76, 17);
-            this.checkBox1.TabIndex = 166;
-            this.checkBox1.Text = "ID тарифу";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.rateIDCheckBox_Payment.AutoSize = true;
+            this.rateIDCheckBox_Payment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rateIDCheckBox_Payment.Location = new System.Drawing.Point(567, 246);
+            this.rateIDCheckBox_Payment.Name = "rateIDCheckBox_Payment";
+            this.rateIDCheckBox_Payment.Size = new System.Drawing.Size(76, 17);
+            this.rateIDCheckBox_Payment.TabIndex = 166;
+            this.rateIDCheckBox_Payment.Text = "ID тарифу";
+            this.rateIDCheckBox_Payment.UseVisualStyleBackColor = true;
             // 
             // Payments
             // 
@@ -838,7 +844,7 @@
             this.BackgroundImage = global::Курсовая.Properties.Resources.back_subject;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1352, 699);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.rateIDCheckBox_Payment);
             this.Controls.Add(this.noneRadioButton_Payment);
             this.Controls.Add(this.noRadioButton_Payment);
             this.Controls.Add(this.yesRadioButton_Payment);
@@ -979,6 +985,6 @@
         private System.Windows.Forms.ComboBox monthComboBox_Payment;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox rateIDCheckBox_Payment;
     }
 }
