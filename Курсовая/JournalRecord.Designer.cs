@@ -474,6 +474,7 @@
             this.Name = "JournalRecord";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Записи журналу";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.JournalRecord_FormClosing);
             this.Load += new System.EventHandler(this.JournalRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordsDataGridView)).EndInit();

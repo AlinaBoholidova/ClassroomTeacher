@@ -14,10 +14,16 @@ namespace Курсовая
     public partial class JournalRecord : Form
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
+        readonly string status;
 
         public JournalRecord()
         {
             InitializeComponent();
+        }
+
+        public JournalRecord(string status) : this()
+        {
+            this.status = status;
         }
 
         private void JournalRecord_Load(object sender, EventArgs e)
@@ -29,7 +35,7 @@ namespace Курсовая
 
         private void back_Record_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
+            Main main = new Main(status);
             main.Show();
             this.Hide();
         }
@@ -209,6 +215,13 @@ namespace Курсовая
             {
                 MessageBox.Show(@"Error: " + ex.Message);
             }
+        }
+
+        private void JournalRecord_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Main main = new Main(status);
+            main.Show();
+            this.Hide();
         }
     }
 }

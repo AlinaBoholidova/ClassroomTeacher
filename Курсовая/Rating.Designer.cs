@@ -50,7 +50,7 @@
             this.scoresDataGridView.AllowUserToDeleteRows = false;
             this.scoresDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.scoresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.scoresDataGridView.Location = new System.Drawing.Point(43, 147);
+            this.scoresDataGridView.Location = new System.Drawing.Point(420, 145);
             this.scoresDataGridView.Name = "scoresDataGridView";
             this.scoresDataGridView.ReadOnly = true;
             this.scoresDataGridView.Size = new System.Drawing.Size(344, 130);
@@ -62,7 +62,7 @@
             this.pointsDataGridView.AllowUserToDeleteRows = false;
             this.pointsDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.pointsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.pointsDataGridView.Location = new System.Drawing.Point(417, 147);
+            this.pointsDataGridView.Location = new System.Drawing.Point(43, 145);
             this.pointsDataGridView.Name = "pointsDataGridView";
             this.pointsDataGridView.ReadOnly = true;
             this.pointsDataGridView.Size = new System.Drawing.Size(344, 130);
@@ -154,6 +154,7 @@
             this.Name = "Rating";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Рейтинг";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Rating_FormClosing);
             this.Load += new System.EventHandler(this.Rating_Load);
             ((System.ComponentModel.ISupportInitialize)(this.scoresDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointsDataGridView)).EndInit();

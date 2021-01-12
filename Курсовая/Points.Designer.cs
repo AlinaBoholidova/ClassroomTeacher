@@ -453,6 +453,7 @@
             this.Name = "Points";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Розподіл балів";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Points_FormClosing);
             this.Load += new System.EventHandler(this.Points_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pointsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointsBindingSource)).EndInit();

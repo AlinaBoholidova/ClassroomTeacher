@@ -29,7 +29,8 @@ namespace Курсовая
             {
                 User user = db.GetTable<User>().Where(t => t.Login == loginTextBox_Login.Text && 
                     t.Password == passwordTextBox_Login.Text).Single();
-                Main main = new Main();
+                string status = user.Status;
+                Main main = new Main(status);
                 this.Hide();
                 main.Show();
             }

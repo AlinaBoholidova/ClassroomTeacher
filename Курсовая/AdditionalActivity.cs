@@ -14,10 +14,22 @@ namespace Курсовая
     public partial class AdditionalActivity : Form
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
+        readonly string status;
 
         public AdditionalActivity()
         {
             InitializeComponent();
+        }
+
+        public AdditionalActivity(string status) : this()
+        {
+            this.status = status;
+            if (status == "Класний керівник")
+            {
+                add_Activity.Enabled = false;
+                edit_Activity.Enabled = false;
+                delete_Activity.Enabled = false;
+            }
         }
 
         private void AdditionalActivity_Load(object sender, EventArgs e)
@@ -112,14 +124,14 @@ namespace Курсовая
 
         private void back_AddActivity_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
+            Main main = new Main(status);
             this.Hide();
             main.Show();
         }
 
         private void AdditionalActivity_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Main main = new Main();
+            Main main = new Main(status);
             this.Hide();
             main.Show();
         }

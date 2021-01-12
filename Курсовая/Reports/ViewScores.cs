@@ -15,10 +15,16 @@ namespace Курсовая
     public partial class ViewScores : Form
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
+        readonly string status;
 
         public ViewScores()
         {
             InitializeComponent();
+        }
+
+        public ViewScores(string status) : this()
+        {
+            this.status = status;
         }
 
         private void ViewScores_Load(object sender, EventArgs e)
@@ -150,12 +156,14 @@ namespace Курсовая
 
         private void ViewScores_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            Main main = new Main(status);
+            main.Show();
+            this.Hide();
         }
 
         private void back_Scores_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
+            Main main = new Main(status);
             main.Show();
             this.Hide();
         }

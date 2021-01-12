@@ -14,10 +14,16 @@ namespace Курсовая
     public partial class PersonnelFiles : Form
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
+        readonly string status;
 
         public PersonnelFiles()
         {
             InitializeComponent();
+        }
+
+        public PersonnelFiles(string status) : this()
+        {
+            this.status = status;
         }
 
         private void PersonnelFiles_Load(object sender, EventArgs e)
@@ -187,14 +193,14 @@ namespace Курсовая
 
         private void back_PersonnelFiles_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
+            Main main = new Main(status);
             main.Show();
             this.Hide();
         }
 
         private void PersonnelFiles_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Main main = new Main();
+            Main main = new Main(status);
             main.Show();
             this.Hide();
         }

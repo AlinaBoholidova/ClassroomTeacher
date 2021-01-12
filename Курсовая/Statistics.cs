@@ -111,26 +111,19 @@ namespace Курсовая
                 chartBirthMonth.Series[0].Points.AddXY(i, birthData[i]);
 
             // chartPaymentMonth
-            int paymentCount = debtorsDataGridView.Rows.Count - 1;
-            List<string> paymentMonth = new List<string>();
-            for (int i = 0; i < paymentCount; i++)
-            {
-                if (!paymentMonth.Contains(Convert.ToString(debtorsDataGridView.Rows[i].Cells[3].Value)))
-                {
-                    paymentMonth.Add(Convert.ToString(debtorsDataGridView.Rows[i].Cells[3].Value));
-                }
-            }
+            int paymentCount = debtorsDataGridView.Rows.Count;
             Dictionary<string, double> paymentData = new Dictionary<string, double>();
             for (int i = 0; i < paymentCount; i++)
             {
-                if (!paymentData.ContainsKey(paymentMonth[i]))
-                    paymentData.Add(paymentMonth[i], 1);
-
+                if (!paymentData.ContainsKey(Convert.ToString(debtorsDataGridView.Rows[i].Cells[3].Value)))
+                {
+                    paymentData.Add(Convert.ToString(debtorsDataGridView.Rows[i].Cells[3].Value), 1);
+                }
                 else
-                    paymentData[paymentMonth[i]] += 1;
+                    paymentData[Convert.ToString(debtorsDataGridView.Rows[i].Cells[3].Value)] += 1;
             }
             foreach (string i in paymentData.Keys)
-                chartPaymentMonth.Series[0].Points.AddXY(i, paymentData[i]);
+                chartPaymentMonth.Series[0].Points.AddXY(i, paymentData[i]);            
 
             // chartActivity
             int activityCount = activitiesDataGridView.Rows.Count - 1;

@@ -135,6 +135,7 @@
             this.Name = "ViewReceipt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Квитанція";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewReceipt_FormClosing);
             this.Load += new System.EventHandler(this.ViewReceipt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.paymentDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();

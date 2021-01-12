@@ -14,10 +14,22 @@ namespace Курсовая
     public partial class Points : Form
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
+        readonly string status;
 
         public Points()
         {
             InitializeComponent();
+        }
+
+        public Points(string status) : this()
+        {
+            this.status = status;
+            if (status == "Класний керівник")
+            {
+                add_Points.Enabled = false;
+                edit_Points.Enabled = false;
+                delete_Points.Enabled = false;
+            }
         }
 
         private void showAll_Points_Click(object sender, EventArgs e)
@@ -34,7 +46,7 @@ namespace Курсовая
 
         private void back_Points_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
+            Main main = new Main(status);
             this.Hide();
             main.Show();
         }
@@ -201,6 +213,13 @@ namespace Курсовая
         private void fromNumericUpDown_Points_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Points_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Main main = new Main(status);
+            this.Hide();
+            main.Show();
         }
     }
 }

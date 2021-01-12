@@ -15,10 +15,16 @@ namespace Курсовая
     public partial class ViewReceipt : Form
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
+        readonly string status;
 
         public ViewReceipt()
         {
             InitializeComponent();
+        }
+
+        public ViewReceipt(string status) : this()
+        {
+            this.status = status;
         }
 
         private void ViewReceipt_Load(object sender, EventArgs e)
@@ -74,7 +80,14 @@ namespace Курсовая
 
         private void back_Receipt_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
+            Main main = new Main(status);
+            main.Show();
+            this.Hide();
+        }
+
+        private void ViewReceipt_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Main main = new Main(status);
             main.Show();
             this.Hide();
         }

@@ -14,10 +14,16 @@ namespace Курсовая
     public partial class Subjects : Form
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
+        readonly string status;
 
         public Subjects()
         {
             InitializeComponent();
+        }
+
+        public Subjects(string status) : this()
+        {
+            this.status = status;
         }
 
         private void Subjects_Load(object sender, EventArgs e)
@@ -30,7 +36,9 @@ namespace Курсовая
 
         private void Subjects_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            Main main = new Main(status);
+            main.Show();
+            this.Hide();
         }
 
         // Tests
@@ -317,7 +325,7 @@ namespace Курсовая
 
         private void back_Subjects_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
+            Main main = new Main(status);
             main.Show();
             this.Hide();
         }

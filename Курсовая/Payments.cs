@@ -14,15 +14,29 @@ namespace Курсовая
     public partial class Payments : Form
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
+        readonly string status;
 
         public Payments()
         {
             InitializeComponent();
         }
 
+        public Payments(string status) : this()
+        {
+            this.status = status;
+            if (status == "Класний керівник")
+            {
+                add_Rate.Enabled = false;
+                edit_Rate.Enabled = false;
+                delete_Rate.Enabled = false;
+            }
+        }
+
         private void Payments_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            Main main = new Main(status);
+            main.Show();
+            this.Hide();
         }
 
         private void Payments_Load(object sender, EventArgs e)
@@ -47,7 +61,7 @@ namespace Курсовая
 
         private void back_Payments_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
+            Main main = new Main(status);
             main.Show();
             this.Hide();
         }
@@ -265,8 +279,8 @@ namespace Курсовая
                     sqlconn.Open();
                     if (month != "" && paid != 2)
                     {
-                        SqlDataAdapter da = new SqlDataAdapter(select + select_paid + paid + "' AND " +
-                            select_month + month, sqlconn);
+                        SqlDataAdapter da = new SqlDataAdapter(select + select_month + month + "' AND " +
+                            select_paid + paid, sqlconn);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
                         paymentDataGridView.DataSource = dt;
@@ -274,7 +288,7 @@ namespace Курсовая
                     }
                     else if (paid != 2 && month == "")
                     {
-                        SqlDataAdapter da = new SqlDataAdapter(select + select_paid + paid + "'", sqlconn);
+                        SqlDataAdapter da = new SqlDataAdapter(select + select_paid + paid, sqlconn);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
                         paymentDataGridView.DataSource = dt;
@@ -282,7 +296,7 @@ namespace Курсовая
                     }
                     else if (paid == 2 && month != "")
                     {
-                        SqlDataAdapter da = new SqlDataAdapter(select + select_month + month, sqlconn);
+                        SqlDataAdapter da = new SqlDataAdapter(select + select_month + month + "'", sqlconn);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
                         paymentDataGridView.DataSource = dt;

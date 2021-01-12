@@ -14,10 +14,16 @@ namespace Курсовая
     public partial class Pupils : Form
     {
         const string ConnectionString = @"Data Source=DESKTOP-ELHNV9J\SQLEXPRESS;Initial Catalog=SchoolCourse;Integrated Security=True";
+        readonly string status;
 
         public Pupils()
         {
             InitializeComponent();
+        }
+
+        public Pupils(string status) : this()
+        {
+            this.status = status;
         }
 
         private void Учні_Load(object sender, EventArgs e)
@@ -267,14 +273,14 @@ namespace Курсовая
 
         private void back_Pupils_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
+            Main main = new Main(status);
             main.Show();
             this.Hide();
         }
 
         private void Pupils_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Main main = new Main();
+            Main main = new Main(status);
             main.Show();
             this.Hide();
         }
